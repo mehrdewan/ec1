@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> jump </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 150px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input id="leftTextBox" type="text">
+        <button id="jumpButton"><span id="buttonText">JUMP ></span></button>
+        <input id="rightTextBox" type="text">
+    </div>
+
+    <script>
+        const leftTextBox = document.getElementById("leftTextBox");
+        const rightTextBox = document.getElementById("rightTextBox");
+        const jumpButton = document.getElementById("jumpButton");
+        const buttonText = document.getElementById("buttonText");
+
+        jumpButton.addEventListener("click", function () {
+            if (buttonText.textContent === "JUMP >") {
+                const text = leftTextBox.value;
+                rightTextBox.value = text;
+                leftTextBox.value = "";
+                buttonText.textContent = "< JUMP";
+            } else {
+                const text = rightTextBox.value;
+                leftTextBox.value = text;
+                rightTextBox.value = "";
+                buttonText.textContent = "JUMP >";
+            }
+        });
+    </script>
+</body>
+</html>
